@@ -1,25 +1,45 @@
-const viajes = [];
+// modules/viajes.js
 
-const costosTransporte = {
-  avion: 500,
-  autobus: 200,
-  coche: 100,
-};
+const destinos = [];
 
 export const registrarDestino = (destino, fecha, transporte, personas) => {
   const costo = calcularCosto(destino, transporte, personas);
-  viajes.push({ destino, fecha, transporte, personas, costo });
+  const nuevoViaje = { destino, fecha, transporte, personas, costo };
+  destinos.push(nuevoViaje);
 };
 
-export const calcularCosto = (destino, transporte, personas) => {
-  const baseDestino = destino.length * 10;
-  const transporteCosto = costosTransporte[transporte] || 0;
-  const subtotal = (baseDestino + transporteCosto) * personas;
+const calcularCosto = (destino, transporte, personas) => {
+  let costoBase = 0;
 
-  const descuento = personas >= 4 ? 0.15 : 0; // 15% de descuento
-  const total = subtotal - subtotal * descuento;
+  switch (destino) {
+    case "Paris":
+      costoBase = 500;
+      break;
+    case "Londres":
+      costoBase = 400;
+      break;
+    case "New York":
+      costoBase = 600;
+      break;
+  }
+
+  switch (transporte) {
+    case "Avión":
+      costoBase += 200;
+      break;
+    case "Tren":
+      costoBase += 100;
+      break;
+  }
+
+  let total = costoBase * personas;
+
+  // Descuento por grupo grande
+  if (personas >= 4) {
+    total *= 0.9; // 10% de descuento
+  }
 
   return total;
 };
 
-export const obtenerViajes = () => viajes;
+export const mostrarItinerario = () => destinos;

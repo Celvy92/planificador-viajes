@@ -2,42 +2,48 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Planificador de Viajes</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planificador de Viajes ✈️</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>✈️ Planificador de Viajes</h1>
+    <h1>🌍 Planificador de Viajes</h1>
 
-    <div class="formulario">
-      <input type="text" id="destino" placeholder="Destino" />
-      <input type="date" id="fecha" />
-      <select id="transporte">
-        <option value="avion">Avión</option>
-        <option value="autobus">Autobús</option>
-        <option value="coche">Coche</option>
-      </select>
-      <input type="number" id="personas" min="1" placeholder="Número de personas" />
-      <button id="agregar">Agregar viaje</button>
-    </div>
+    <form id="formularioViaje">
+      <label>Destino:
+        <select id="destino">
+          <option>Paris</option>
+          <option>Londres</option>
+          <option>New York</option>
+        </select>
+      </label>
 
-    <h2>🗓️ Itinerario</h2>
-    <table id="tabla-itinerario">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Destino</th>
-          <th>Fecha</th>
-          <th>Transporte</th>
-          <th>Personas</th>
-          <th>Costo Total</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+      <label>Fecha:
+        <input type="date" id="fecha" required />
+      </label>
+
+      <label>Transporte:
+        <select id="transporte">
+          <option>Avión</option>
+          <option>Tren</option>
+        </select>
+      </label>
+
+      <label>Número de personas:
+        <input type="number" id="personas" min="1" value="1" required />
+      </label>
+
+      <button type="submit">Agregar viaje</button>
+    </form>
+
+    <section id="itinerario">
+      <h2>🗺️ Itinerario</h2>
+      <div id="listaViajes"></div>
+    </section>
   </div>
 
-  <script type="module" src="./main.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
