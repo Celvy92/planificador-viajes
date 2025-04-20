@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Planificador de Viajes ✈️</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Viajes</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🌍 Planificador de Viajes</h1>
+    <header>
+        <h1>🌍 Planificador de Viajes ✈️</h1>
+        <p>Registra tus destinos, calcula el costo y disfruta de tus viajes soñados.</p>
+    </header>
+    
+    <main>
+        <section id="formulario">
+            <h2>Registrar un Nuevo Viaje</h2>
+            <form id="form-viaje">
+                <label for="destino">Destino</label>
+                <input type="text" id="destino" placeholder="Ej. Paris" required>
+                
+                <label for="fecha">Fecha de Viaje</label>
+                <input type="date" id="fecha" required>
+                
+                <label for="transporte">Transporte</label>
+                <select id="transporte" required>
+                    <option value="Avión">Avión</option>
+                    <option value="Tren">Tren</option>
+                </select>
+                
+                <label for="personas">Número de Personas</label>
+                <input type="number" id="personas" placeholder="Ej. 2" required min="1">
+                
+                <button type="submit">Registrar Viaje</button>
+            </form>
+        </section>
 
-    <form id="formularioViaje">
-      <label>Destino:
-        <select id="destino">
-          <option>Paris</option>
-          <option>Londres</option>
-          <option>New York</option>
-        </select>
-      </label>
+        <section id="itinerario">
+            <h2>Itinerario</h2>
+            <div id="viajes-lista"></div>
+        </section>
+    </main>
 
-      <label>Fecha:
-        <input type="date" id="fecha" required />
-      </label>
+    <footer>
+        <p>&copy; 2025 Planificador de Viajes</p>
+    </footer>
 
-      <label>Transporte:
-        <select id="transporte">
-          <option>Avión</option>
-          <option>Tren</option>
-        </select>
-      </label>
-
-      <label>Número de personas:
-        <input type="number" id="personas" min="1" value="1" required />
-      </label>
-
-      <button type="submit">Agregar viaje</button>
-    </form>
-
-    <section id="itinerario">
-      <h2>🗺️ Itinerario</h2>
-      <div id="listaViajes"></div>
-    </section>
-  </div>
-
-  <script type="module" src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
